@@ -1,4 +1,4 @@
-const initOAuthWindow = (provider, onSuccess) => () => {
+const initOAuthWindow = (provider: string, onSuccess: Function) => () => {
   let url =
     process.env.NODE_ENV === "development"
       ? "localhost:4000"

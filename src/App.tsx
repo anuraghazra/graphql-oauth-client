@@ -1,13 +1,12 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import "./App.css";
+import "./styles/App.css";
 
-import { GET_TODOS } from "./graphql/typeDefs";
-import { initOAuthWindow } from "./utils";
 import Todos from "./components/Todos";
+import { initOAuthWindow } from "./utils";
+import { useTodosQuery } from "./generated/graphql";
 
-function App() {
-  const { loading, error, data, refetch } = useQuery(GET_TODOS);
+const App: React.FC = () => {
+  const { loading, error, data, refetch } = useTodosQuery();
 
   return (
     <div className="App">
@@ -26,6 +25,6 @@ function App() {
       <Todos todos={data?.todos} />
     </div>
   );
-}
+};
 
 export default App;
